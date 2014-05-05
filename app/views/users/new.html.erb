@@ -1,0 +1,32 @@
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		< div class= "error_messages">
+			<h2> Invalid form </h2>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+				<li> <%= message %> </li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<fieldset>
+		<caption>Sign UP</caption>
+		<p>
+			<%= f.label :Email %>
+			<%= f.text_field :email %>
+		</p>
+		<p>
+			<%= f.label :Password %>
+			<%= f.password_field :password %>
+		</p>
+		<p>
+			<%= f.label :Password_Confirmation %>
+			<%= f.password_field :password_confirmation %>
+		</p>
+		<p class = "button" >
+			<%= f.submit 'Sign Up' %>
+			<%= f.submit 'Clear Form', :type => 'reset' %>
+		</p>
+	</fieldset>
+	<% end %>
